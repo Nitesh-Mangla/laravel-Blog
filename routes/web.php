@@ -18,7 +18,18 @@ Route::get('/', function () {
 Route::group(['middleware' => 'web'],function(){
     Route::GET('/category','categoryController@index');
     Route::GET('/create', 'categoryController@createCategory')->name('create');
-    Route::POST('/store', 'categoryController@storeCategory')->name('store');
+    Route::GET('/store', 'categoryController@storeCategory')->name('store');
+    Route::GET( '/blogdata','categoryController@blogData' )->name( 'blogName' );
+    Route::GET( '/editblog', 'categoryController@editBlogData' )->name('editblog');
+    Route::GET('/destory','categoryController@destory' );
+    Route::GET('/post', 'postController@index');
+    Route::GET('/create_post', 'postController@createPost')->name('create_post');
+    Route::GET('blogpost/{id?}', 'postController@blogPost')->name('blogpost');
+
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

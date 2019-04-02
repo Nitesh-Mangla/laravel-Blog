@@ -17,7 +17,8 @@
 
 @include( 'common.error' )
  <div class="panel-body">
-    {!! Form::open(array(route('store'))) !!}
+    {!! Form::open(['url' => 'store']) !!}
+    @method('get');
     {!! Form::label('Name', 'Name:') !!}
     {!! Form::text('name', null, array('class' => 'form-control')) !!}
     {!! Form::submit( 'Create Category' , array( 'name' => 'submit', 'class' => 'secondary-cart-btn' ))  !!}

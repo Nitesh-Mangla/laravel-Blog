@@ -6,11 +6,11 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
 
   @yield('title');
-
-  <!-- General CSS Files -->
+    <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
+  //deepti.bhanot@quytech.com
+  @yield('css')
   <!-- CSS Libraries -->
 
   <!-- Template CSS -->
@@ -29,6 +29,12 @@
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
+        @if( Session::has( 'msg' ) )
+    <div class= "alert alert-success">
+        <em id="msg">{!! session( 'msg' ) !!}</em>
+    </div>
+
+@endif
           <div class="section-header">
          @yield('pagename')
           </div>  
@@ -55,7 +61,12 @@
   <!-- Page Specific JS File -->
 
   <!-- Template JS File -->
+  @yield( 'javascript' )
+  <script src="<?php echo asset('js/datatable.js') ?>" ></script>
   <script src="<?php echo asset('js/scripts.js')?>"></script>
   <script src="<?php echo asset('js/custom.js')?>"></script>
+  
+  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 </body>
 </html>
